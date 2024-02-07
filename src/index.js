@@ -24,14 +24,14 @@ app.get('/',(req,res)=>{
     res.send("Server is Working")
 })
 
+const PORT = process.env.PORT || 3000; // Use uppercase PORT, and set a default value of 3000
 
-
-app.listen(process.env.port,async()=>{
-    try {
-        await connection;
-        console.log('Connected to db');
-    } catch (error) {
-        console.log('Error while connecting to DB');
-    } 
-    console.log("Server Running on port "+process.env.port);
-})
+app.listen(PORT, async () => {
+  try {
+    await connection;
+    console.log("Connected to db");
+  } catch (error) {
+    console.log("Error while connecting to DB:", error);
+  }
+  console.log("Server Running on port " + PORT);
+});
